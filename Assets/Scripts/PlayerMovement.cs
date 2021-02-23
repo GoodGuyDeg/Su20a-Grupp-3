@@ -17,9 +17,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float maxFuel = 1000; //variabel till maxFuel - Robin
     public float currentFuel; //sätter nuvarande fuel - Robin
-    public float loseFuel = 0.1f;
+    [SerializeField,Range(0.1f,1)]
+    public float loseFuel = 0.1f; //hur mycket fuel man förlorar - Robin 
 
-    public Fuelbar fuelBar;
+    public Fuelbar fuelBar; //Referens till fuelbaren - Robin
 
     void Start()
     {
@@ -31,8 +32,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        currentFuel -= loseFuel*Time.deltaTime;
-        fuelBar.SetHealth(currentFuel);
+        currentFuel -= loseFuel*Time.deltaTime; //tar bort fuel varje sekund - Robin
+        fuelBar.SetHealth(currentFuel); //Uppdaterar så att man kan se den nuvarande fuelen - Robin
 
         float hor = Input.GetAxis("Horizontal"); //hämtar inputen "horizontal" och bevarar den i floaten hor (horizontal) - Robin
 
