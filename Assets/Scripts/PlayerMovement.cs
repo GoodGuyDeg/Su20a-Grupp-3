@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D body; //referens till spelarens rigidbody - Robin
 
-    [SerializeField, Range(1,100)] //gör en slider som man kan ändra i konsolen till spelaren speed - Robin
+    [SerializeField, Range(150,300)] //gör en slider som man kan ändra i konsolen till spelaren speed - Robin
     float movementSpeed; //float till spelarens speed - Robin
 
     bool hasJumped = true; //en bool som frågar om spelaren har hoppat - Robin
@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        body.velocity = new Vector2(movementSpeed, body.velocity.y); //Rör konstant spelaren frammåt - Robin
+        float hor = Input.GetAxis("Horizontal"); //hämtar inputen "horizontal" och bevarar den i floaten hor (horizontal) - Robin
+
+        body.velocity = new Vector2(hor * movementSpeed * Time.deltaTime, body.velocity.y); //ändrar body.velocityns x värde beroende på vilken knapp man klickar på för att röra sig åt höger eller vänster (ändra inte y värdet det är body.velocity.y för att man ska kunna hoppa) - Robin
 
         if (sliding == false) //om sliding är false - Robin
         {
@@ -74,5 +76,4 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 1f; //blir tiden normal - Robin
         }
     }
-    //HEJSAN
 }
