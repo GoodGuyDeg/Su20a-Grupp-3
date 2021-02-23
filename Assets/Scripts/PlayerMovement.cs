@@ -14,14 +14,26 @@ public class PlayerMovement : MonoBehaviour
     bool canstand; //om spelaren kan stå upp eller inte - Robin
 
     public Animator crouch; //referens till animatorn där crouch finns. - Robin
+
+    public float maxFuel = 1000; //variabel till maxFuel - Robin
+    public float currentFuel; //sätter nuvarande fuel - Robin
+    public float loseFuel = 0.1f;
+
+    public Fuelbar fuelBar;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>(); //hämtar rigidbodyn från spelaren - Robin
         sliding = false; //sätter sliding till false - Robin
         canstand = true; //spelaren kan stå blir true - Robin
+        currentFuel = maxFuel; //sätter nuvarande fuel till maxfuel i början.
+        fuelBar.SetMaxFuel(maxFuel); //sätter värdet på fuelbaren
     }
     void Update()
     {
+        currentFuel -= loseFuel*Time.deltaTime;
+        fuelBar.SetHealth(currentFuel);
+
         float hor = Input.GetAxis("Horizontal"); //hämtar inputen "horizontal" och bevarar den i floaten hor (horizontal) - Robin
 
         body.velocity = new Vector2(hor * movementSpeed * Time.deltaTime, body.velocity.y); //ändrar body.velocityns x värde beroende på vilken knapp man klickar på för att röra sig åt höger eller vänster (ändra inte y värdet det är body.velocity.y för att man ska kunna hoppa) - Robin
