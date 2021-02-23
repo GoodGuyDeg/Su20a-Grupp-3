@@ -74,5 +74,5 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 1f; //blir tiden normal - Robin
         }
     }
-
+    //HEJSAN
 }
