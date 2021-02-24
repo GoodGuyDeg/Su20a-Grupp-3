@@ -74,9 +74,23 @@ public class PlayerMovement : MonoBehaviour
         {
             Time.timeScale = 0.6f; //tiden slowar ned - Robin
         }
-        if (collision.tag == "heal")
+        
+        //vid contakt med en liten olja/hjärta så fylls slidern på med 10 och objektet försvinner - EN
+        if (collision.tag == "heal") 
         {
             TakeHealing(10);
+            Destroy(collision.transform.gameObject);
+        }
+        //Plus 30 HP - EN
+        if (collision.tag == "Heal")
+        {
+            TakeHealing(30);
+            Destroy(collision.transform.gameObject);
+        }
+        //Plus 50 HP - EN
+        if (collision.tag == "HEAL")
+        {
+            TakeHealing(50);
             Destroy(collision.transform.gameObject);
         }
 
@@ -95,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //Kod för att få healing av något - EN
+    //Kod för att ta up healing av något - EN
     public void TakeHealing(int heal)
     {
         currentFuel += heal;
