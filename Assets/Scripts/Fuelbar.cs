@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Fuelbar : MonoBehaviour
 {
+
     public Slider slider; //referens till fuelens slider - Robin
 
     public void SetMaxFuel(float fuel) //Sätter sliderns max fuel value - Robin

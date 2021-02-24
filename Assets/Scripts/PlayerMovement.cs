@@ -74,7 +74,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Time.timeScale = 0.6f; //tiden slowar ned - Robin
         }
-        
+        if (collision.tag == "heal")
+        {
+            TakeHealing(10);
+            Destroy(collision.transform.gameObject);
+        }
+
     }
     private void OnTriggerExit2D(Collider2D collision) //om spelaren exitar triggern - Robin
     {
@@ -89,4 +94,12 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 1f; //blir tiden normal - Robin
         }
     }
+
+    //Kod för att få healing av något - EN
+    public void TakeHealing(int heal)
+    {
+        currentFuel += heal;
+        currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel);
+    }
+
 }

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class playerHeal : MonoBehaviour
 {
-	public void SendHealing(int heal)
+	public void OnTriggerEnter2D(Collider2D collision)
 	{
-		PlayerHealth playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-		playerStats.TakeHealing(heal);
+        if (collision.tag == "Heal")
+        {
+			Fuelbar fuelStats = GameObject.FindGameObjectWithTag("fuelhealth").GetComponent<Fuelbar>();
+        }
+
 	}
 }
