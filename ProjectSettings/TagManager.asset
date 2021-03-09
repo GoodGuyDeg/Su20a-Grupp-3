@@ -12,6 +12,7 @@ TagManager:
   - CantStand
   - Heal
   - HEAL
+  - Water
   layers:
   - Default
   - TransparentFX

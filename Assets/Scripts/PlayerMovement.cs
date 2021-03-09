@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D body; //referens till spelarens rigidbody - Robin
+    public LayerMask water;
 
     [SerializeField, Range(150,300)] //gör en slider som man kan ändra i konsolen till spelaren speed - Robin
     float movementSpeed; //float till spelarens speed - Robin
@@ -17,8 +18,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float maxFuel = 1000; //variabel till maxFuel - Robin
     public float currentFuel; //sätter nuvarande fuel - Robin
-    [SerializeField,Range(0.1f,1)]
-    public float loseFuel = 0.1f; //hur mycket fuel man förlorar - Robin 
+    [SerializeField,Range(0.1f,2)]
+    public float loseFuel = 0.1f; //hur mycket fuel man förlorar - Robin
+    public float loseFuelInWater = 10; //variable för att förlora mer fuel i vatten - EN
 
     public Fuelbar fuelBar; //Referens till fuelbaren - Robin
 
@@ -58,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
                 sliding = false; //sliding på false - Robin
                 crouch.SetBool("Crouch", false); //spelaren crouchar inte längre - Robin
             }
-         }
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision) //om spelaren collidar - Robin
     {
@@ -109,11 +111,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //Kod för att ta up healing av något - EN
+    //Kod för att ta up fuel av något - EN
     public void TakeHealing(int heal)
     {
         currentFuel += heal;
         currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Water")
+        {
+            currentFuel -= loseFuel * Time.deltaTime * loseFuelInWater;
+            print("water");
+        }
     }
 
 }
