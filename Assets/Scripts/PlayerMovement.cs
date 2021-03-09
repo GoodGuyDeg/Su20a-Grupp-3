@@ -66,6 +66,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision) //om spelaren entrar triggern - Robin
     {
+        if(collision.transform.tag == "MushroomHead")
+        {
+            body.velocity += new Vector2(0, 15); //går du på svampen studsar du uppåt - Robin
+        }
         if(collision.transform.tag == "CantStand") //om tagen är Cantstand - Robin
         {
             canstand = false; //blir canstand false - Robin
@@ -93,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             TakeHealing(50);
             Destroy(collision.transform.gameObject);
         }
-
+        
     }
     private void OnTriggerExit2D(Collider2D collision) //om spelaren exitar triggern - Robin
     {
