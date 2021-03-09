@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D body; //referens till spelarens rigidbody - Robin
     public LayerMask water;
 
-    [SerializeField, Range(150,300)] //gör en slider som man kan ändra i konsolen till spelaren speed - Robin
+    [SerializeField, Range(150,2000)] //gör en slider som man kan ändra i konsolen till spelaren speed - Robin
     float movementSpeed; //float till spelarens speed - Robin
 
     bool hasJumped = true; //en bool som frågar om spelaren har hoppat - Robin
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxFuel = 1000; //variabel till maxFuel - Robin
     public float currentFuel; //sätter nuvarande fuel - Robin
     [SerializeField,Range(0.1f,2)]
-    public float loseFuel = 0.1f; //hur mycket fuel man förlorar - Robin
+    public float loseFuel = 1f; //hur mycket fuel man förlorar - Robin
     public float loseFuelInWater = 10; //variable för att förlora mer fuel i vatten - EN
 
     public Fuelbar fuelBar; //Referens till fuelbaren - Robin
@@ -130,5 +130,4 @@ public class PlayerMovement : MonoBehaviour
             print("water");
         }
     }
-
 }
