@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.transform.tag == "MushroomHead")
         {
-            body.velocity += new Vector2(0, 10); //går du på svampen studsar du uppåt - Robin
+            body.velocity += new Vector2(0, 15); //går du på svampen studsar du uppåt - Robin
         }
         if(collision.transform.tag == "CantStand") //om tagen är Cantstand - Robin
         {
