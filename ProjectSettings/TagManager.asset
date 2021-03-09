@@ -13,6 +13,7 @@ TagManager:
   - Heal
   - HEAL
   - Water
+  - MushroomHead
   layers:
   - Default
   - TransparentFX
