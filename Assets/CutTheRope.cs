@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CutTheRope : MonoBehaviour
 {
+    public Rigidbody2D bridge;
     public GameObject bridgerelease; //referens till det som håller uppe bron - Robin 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -12,6 +13,7 @@ public class CutTheRope : MonoBehaviour
         {
             transform.position += new Vector3(0, 10000, 0); //Flyttar iväg repet - Robin
             bridgerelease.transform.position += new Vector3(0, 10000, 0); //Flyttar iväg på collidern som håller uppe bron - Robi
+            bridge.constraints = RigidbodyConstraints2D.None; //bro kan nu inte flytta på sig utan att repet är borta - EN
         }
     }
 }
