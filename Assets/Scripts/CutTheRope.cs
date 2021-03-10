@@ -13,7 +13,18 @@ public class CutTheRope : MonoBehaviour
         {
             transform.position += new Vector3(0, 10000, 0); //Flyttar iväg repet - Robin
             bridgerelease.transform.position += new Vector3(0, 10000, 0); //Flyttar iväg på collidern som håller uppe bron - Robi
-            bridge.constraints = RigidbodyConstraints2D.None; //bro kan nu inte flytta på sig utan att repet är borta - EN
+            
+            /*bro kan nu inte flytta på sig utan att repet är borta
+             för att sedan frysas igen efter 3 sekunder så att man
+             inte kan flytta på den - EN*/
+            if (Time.deltaTime < 3)
+            {
+                bridge.constraints = RigidbodyConstraints2D.None; 
+            }
+            else
+            {
+                bridge.constraints = RigidbodyConstraints2D.FreezeAll; 
+            }
         }
     }
 }
