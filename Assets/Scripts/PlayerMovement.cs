@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D body; //referens till spelarens rigidbody - Robin
-    public LayerMask water;
 
     [SerializeField, Range(150,2000)] //gör en slider som man kan ändra i konsolen till spelaren speed - Robin
     float movementSpeed; //float till spelarens speed - Robin
 
+    public float jumpHieght = 12; //variabel för hur högt man kan hoppa - EN
     bool hasJumped = true; //en bool som frågar om spelaren har hoppat - Robin
     bool sliding; //om spelaren slidar eller inte - Robin
     bool canstand; //om spelaren kan stå upp eller inte - Robin
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (cuttherope == false) //om repet inte är skuret - Robin
         {
-            dialogtext.text = "Use your flame to cut the rope.\n I would try myself but my flame has been gone for long."; //sätt texten till det här - Robin
+            dialogtext.text = "Use your flame to cut the rope.\n I would try myself but my flame has been gone\n for to long."; //sätt texten till det här - Robin
         }
 
         currentFuel -= loseFuel*Time.deltaTime; //tar bort fuel varje sekund - Robin
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump") && !hasJumped) //Om spelaren klickar på jump och spelaren inte har hoppat så hoppar den - Robin
             {
-                body.velocity = new Vector2(body.velocity.x, 12);
+                body.velocity = new Vector2(body.velocity.x, jumpHieght);
                 hasJumped = true;
             }
         }
