@@ -6102,8 +6102,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313860439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 77.247, y: -23, z: 1005.16974}
-  m_LocalScale: {x: -2.0286472, y: -7.615634, z: -2.2207625}
+  m_LocalPosition: {x: 77.246, y: -22.189, z: 1005.16974}
+  m_LocalScale: {x: -2.028647, y: -7.94923, z: -2.2207625}
   m_Children: []
   m_Father: {fileID: 1274190641}
   m_RootOrder: 19
@@ -6118,7 +6118,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -14873,7 +14873,7 @@ GameObject:
   - component: {fileID: 1528512738}
   m_Layer: 0
   m_Name: Ground (6)
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16966,8 +16966,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991295516}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 66.686, y: -22.045, z: 1005.16974}
-  m_LocalScale: {x: -2.4278886, y: -7.250868, z: -2.2207625}
+  m_LocalPosition: {x: 66.839, y: -21.169, z: 1005.16974}
+  m_LocalScale: {x: -2.148189, y: -7.611481, z: -2.2207625}
   m_Children: []
   m_Father: {fileID: 1274190641}
   m_RootOrder: 18
@@ -16982,7 +16982,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.021230936, y: -0.0070029497}
