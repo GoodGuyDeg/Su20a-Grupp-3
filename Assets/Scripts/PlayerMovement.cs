@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField,Range(0.1f,2)]
     public float loseFuel = 1f; //hur mycket fuel man förlorar - Robin
     public float loseFuelInWater = 10; //variable för att förlora mer fuel i vatten - EN
-
     public Fuelbar fuelBar; //Referens till fuelbaren - Robin
 
     void Start()
