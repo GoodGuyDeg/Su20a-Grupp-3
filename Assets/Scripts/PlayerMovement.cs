@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (cuttherope == true) //om repet är skuret - Robin
         {
-            dialogtext.text = "I cant walk that far. Il just stand here and wait for the rain..."; //sätt texten till det här - Robin
+            dialogtext.text = "I cant walk that far. Il just stand here and\n wait for the rain..."; //sätt texten till det här - Robin
         }
 
         if (cuttherope == false) //om repet inte är skuret - Robin
@@ -153,7 +153,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.tag == "Water")
         {
             currentFuel -= loseFuel * Time.deltaTime * loseFuelInWater;
-            print("water");
         }
     }
 }
