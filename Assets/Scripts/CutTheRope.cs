@@ -18,14 +18,12 @@ public class CutTheRope : MonoBehaviour
             /*bro kan nu inte flytta på sig utan att repet är borta
              för att sedan frysas igen efter 3 sekunder så att man
              inte kan flytta på den - EN*/
-            if (Time.deltaTime < 3)
-            {
-                bridge.constraints = RigidbodyConstraints2D.None; 
-            }
-            else
-            {
-                bridge.constraints = RigidbodyConstraints2D.FreezeAll; 
-            }
+           bridge.constraints = RigidbodyConstraints2D.None;
+           Invoke("freezebridge",3);
         }
+    }
+    void freezebridge()
+    {
+        bridge.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }
