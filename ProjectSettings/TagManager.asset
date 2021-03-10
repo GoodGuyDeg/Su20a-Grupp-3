@@ -14,6 +14,7 @@ TagManager:
   - HEAL
   - Water
   - MushroomHead
+  - OldMatchNPC
   layers:
   - Default
   - TransparentFX

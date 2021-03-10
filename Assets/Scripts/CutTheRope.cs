@@ -11,6 +11,7 @@ public class CutTheRope : MonoBehaviour
     {
         if(other.transform.tag == "playerflame") //Om repet nuddar elden - Robin
         {
+            PlayerMovement.cuttherope = true;
             transform.position += new Vector3(0, 10000, 0); //Flyttar iväg repet - Robin
             bridgerelease.transform.position += new Vector3(0, 10000, 0); //Flyttar iväg på collidern som håller uppe bron - Robi
             

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     bool hasJumped = true; //en bool som frågar om spelaren har hoppat - Robin
     bool sliding; //om spelaren slidar eller inte - Robin
     bool canstand; //om spelaren kan stå upp eller inte - Robin
+    public static bool cuttherope = false; //har spelaren skurit repet? - Robin
 
     public Animator crouch; //referens till animatorn där crouch finns. - Robin
 
@@ -22,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
     public float loseFuel = 1f; //hur mycket fuel man förlorar - Robin
     public float loseFuelInWater = 10; //variable för att förlora mer fuel i vatten - EN
     public Fuelbar fuelBar; //Referens till fuelbaren - Robin
+
+    public GameObject dialog; //referens till dialog texten - Robin
+    public GameObject textruta; //referens till textrutan för dialogen - Robin
+
+    public Text dialogtext; //referens till dialog texten - Robin
 
     void Start()
     {
@@ -33,6 +40,16 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        if (cuttherope == true) //om repet är skuret - Robin
+        {
+            dialogtext.text = "I cant walk that far. Il just stand here and wait for the rain..."; //sätt texten till det här - Robin
+        }
+
+        if (cuttherope == false) //om repet inte är skuret - Robin
+        {
+            dialogtext.text = "Use your flame to cut the rope.\n I would try myself but my flame has been gone for long."; //sätt texten till det här - Robin
+        }
+
         currentFuel -= loseFuel*Time.deltaTime; //tar bort fuel varje sekund - Robin
         fuelBar.SetHealth(currentFuel); //Uppdaterar så att man kan se den nuvarande fuelen - Robin
 
@@ -69,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.transform.tag == "MushroomHead")
         {
-            body.velocity += new Vector2(0, 15); //går du på svampen studsar du uppåt - Robin
+            body.velocity += new Vector2(0, 10); //går du på svampen studsar du uppåt - Robin
         }
         if(collision.transform.tag == "CantStand") //om tagen är Cantstand - Robin
         {
@@ -78,6 +95,11 @@ public class PlayerMovement : MonoBehaviour
         if (collision.transform.tag == "Startingjump") //om spelaren triggar tag startingjump - Robin
         {
             Time.timeScale = 0.6f; //tiden slowar ned - Robin
+        }
+        if(collision.transform.tag == "OldMatchNPC") //Går spelaren in i NPC triggern - Robin
+        {
+            textruta.SetActive(true); //sätts textrutan på - Robin
+            dialog.SetActive(true); //sätts texten på- Robin
         }
         
         //vid contakt med en liten olja/hjärta så fylls slidern på med 10 och objektet försvinner - EN
@@ -111,6 +133,11 @@ public class PlayerMovement : MonoBehaviour
         if (collision.transform.tag == "Endingjump") //om spelaren triggar endingjump triggern - Robin
         {
             Time.timeScale = 1f; //blir tiden normal - Robin
+        }
+        if (collision.transform.tag == "OldMatchNPC") //När spelaren går ut från NPC triggern - Robin
+        {
+            textruta.SetActive(false); //stängs textrutan av - Robin
+            dialog.SetActive(false); //stängs texten av - Robin
         }
     }
 
