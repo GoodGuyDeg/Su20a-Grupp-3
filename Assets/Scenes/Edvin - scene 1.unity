@@ -16008,7 +16008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f2d065a577e984399ca5fa44969854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1825
+  movementSpeed: 1094
   jumpHieght: 13
   crouch: {fileID: 1787041506}
   maxFuel: 100
